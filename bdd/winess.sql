@@ -1,9 +1,9 @@
 CREATE DATABASE Winess;
 
-USE Winess;
+\c Winess;
 
 CREATE TABLE Utilisateur (
-    user_id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id SERIAL PRIMARY KEY,
     nom VARCHAR(50),
     prenom VARCHAR(50),
     email VARCHAR(50) UNIQUE,
@@ -15,9 +15,8 @@ CREATE TABLE Utilisateur (
     objectif VARCHAR(50)
 );
 
-
 CREATE TABLE ProgrammeSportif (
-    prgrmSportif_id INT PRIMARY KEY AUTO_INCREMENT,
+    prgrmSportif_id SERIAL PRIMARY KEY,
     nom VARCHAR(50),
     description VARCHAR(50),
     niveau VARCHAR(50),
@@ -28,16 +27,16 @@ CREATE TABLE ProgrammeSportif (
 );
 
 CREATE TABLE Exercice (
-    exercice_id INT PRIMARY KEY AUTO_INCREMENT,
+    exercice_id SERIAL PRIMARY KEY,
     nom VARCHAR(50),
     description VARCHAR(50),
     type VARCHAR(50),
-    duree_estimee TIME,
+    duree_estimee INTERVAL,
     calories_brulees INT
 );
 
 CREATE TABLE ObjectifUtilisateur (
-    objectif_id INT PRIMARY KEY AUTO_INCREMENT,
+    objectif_id SERIAL PRIMARY KEY,
     user_id INT,
     description VARCHAR(50),
     date_debut DATE,
@@ -47,7 +46,7 @@ CREATE TABLE ObjectifUtilisateur (
 );
 
 CREATE TABLE SuiviAlimentaire (
-    SuivAlim_id INT PRIMARY KEY AUTO_INCREMENT,
+    SuivAlim_id SERIAL PRIMARY KEY,
     user_id INT,
     Date_ DATE,
     repas_matin VARCHAR(50),
@@ -70,10 +69,10 @@ CREATE TABLE ParticipPrgrm (
 );
 
 CREATE TABLE SeanceEffectuee (
-    seance_id INT PRIMARY KEY AUTO_INCREMENT,
+    seance_id SERIAL PRIMARY KEY,
     user_id INT,
     date_realisation DATE,
-    duree_reelle TIME,
+    duree_reelle INTERVAL,
     ressenti VARCHAR(50),
     commentaires VARCHAR(50),
     FOREIGN KEY (user_id) REFERENCES Utilisateur(user_id) ON DELETE CASCADE
