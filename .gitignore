@@ -1,29 +1,33 @@
 # Node.js
 node_modules/
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 package-lock.json
 
-# dotenv - fichiers d'environnement
+# Fichiers d'environnement
 .env
+.env.local
+.env.*.local
 
 # Logs
 logs/
 *.log
-npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# OS (Windows / Mac / Linux)
+# OS spécifiques
 .DS_Store
 Thumbs.db
 
-# IDE/Editeurs (si vous utilisez)
+# IDE / éditeurs
 .vscode/
 .idea/
 *.swp
 *.swo
 
-# Sequelize (si tu utilises des migrations)
-migrations/
-seeders/
+# Production build (si tu fais un `build`)
+dist/
+
+# Typescript (si tu l'utilises)
+*.tsbuildinfo
