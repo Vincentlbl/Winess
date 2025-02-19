@@ -1,7 +1,7 @@
-const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const db = require('./db');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import db from './db.js'; // Ajoute l'extension .js obligatoire en ESM
 
 const app = express();
 app.use(cors());
